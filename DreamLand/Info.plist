@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Avenir_Medium.otf</string>
+		<string>Avenir_Light.otf</string>
+		<string>Avenir_Heavy.otf</string>
+		<string>Avenir_Black.otf</string>
+		<string>Avenir_Book.otf</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UILaunchScreen</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>
