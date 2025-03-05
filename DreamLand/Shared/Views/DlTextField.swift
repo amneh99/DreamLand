@@ -9,8 +9,11 @@ import SwiftUI
 
 struct DlTextField: View {
     @Binding var text: String
+    @State var test = ""
     @FocusState private var isFocused: Bool
     let placeholder: String
+    let textColor = Color.gray
+//    textFieldGrayTC
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -18,15 +21,22 @@ struct DlTextField: View {
             TextField("", text: $text)
                 .padding()
                 .customFont(.medium(16))
-                .foregroundStyle(.textFieldGrayTC)
-                .background(.textFieldGrayBG)
+                .foregroundStyle(textColor)
+//                .background(.textFieldGrayBG)
+                .background(.ultraThickMaterial)
                 .clipShape(.rect(cornerRadius: 12))
                 .frame(height: 56)
             
             Text(placeholder)
+                .padding(0)
+                .background {
+                    if isFocused || !text.isEmpty {
+                        RoundedRectangle(cornerRadius: 4).foregroundStyle(Material.ultraThickMaterial)
+                    }
+                }
                 .customFont(.regular(16))
-                .foregroundColor(.textFieldGrayTC)
-                .offset(y: isFocused || !text.isEmpty ? -27 : 0)
+                .foregroundColor(textColor)
+                .offset(y: isFocused || !text.isEmpty ? -25 : 0)
                 .scaleEffect(isFocused || !text.isEmpty ? 0.8 : 1, anchor: .topLeading)
                 .animation(.spring(response: 0.45, dampingFraction: 0.45), value: isFocused || !text.isEmpty)
                 .padding(.leading)
@@ -37,4 +47,5 @@ struct DlTextField: View {
 #Preview {
     DlTextField(text: .constant(""), placeholder: "test")
         .padding()
+        .withBackground()
 }

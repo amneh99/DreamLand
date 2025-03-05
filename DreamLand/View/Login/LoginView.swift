@@ -38,7 +38,7 @@ struct LoginView: View {
                         .customFont(.medium(16))
                     
                     signUpButton()
-                        .navLink(title: "", destination: FirstSignUpView())
+                        .navLink(title: "", destination: SignUpView())
                 }
                 
                 Spacer()

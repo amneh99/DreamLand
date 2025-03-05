@@ -9,11 +9,21 @@ import SwiftUI
 
 struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
+    
     var body: some View {
-        VStack {
-           // SignUpStepsView(stepReached: $viewModel.stepReached)
-            Spacer()
+        VStack(spacing: 16) {
+            SignUpStepsView(stepReached: $viewModel.stepReached)
+            
+            Group {
+                switch viewModel.stepReached {
+                case .first: FirstSignUpView(viewModel: viewModel)
+                case .second: SecondSignUpView(viewModel: viewModel)
+                case .third: ThirdSignUpView()
+                case .final: FinalSignUpView()
+                }
+            }
         }
+        .padding(.horizontal)
         .withBackground()
     }
 }

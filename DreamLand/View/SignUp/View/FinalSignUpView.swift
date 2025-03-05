@@ -9,10 +9,17 @@ import SwiftUI
 
 struct FinalSignUpView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            IntroductionView()
+        }
+    }
+    func IntroductionView() -> some View {
+        HStack(spacing: 40) {
+            Image(.yellowStar)
+        }
     }
 }
 
 #Preview {
-    FinalSignUpView()
+    SignUpView(viewModel: SignUpViewModel())
 }

@@ -38,3 +38,10 @@ extension View {
     }
 }
 
+extension View {
+    func styledText(weight: FontWeight) -> some View {
+        self
+            .foregroundStyle(.pastelWhite)
+            .customFont(weight)
+    }
+}
