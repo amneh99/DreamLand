@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SignUpStepsView: View {
     @Binding var stepReached: SignUpStep
+    @State var stepReached1 = SignUpStep.first
     @Namespace private var animationNamespace
     
     var body: some View {
@@ -11,6 +12,28 @@ struct SignUpStepsView: View {
                 getStepView(for: .third)
                 getStepView(for: .final)
             }
+            
+//            Button(action: {
+//                withAnimation(.spring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.5)) {
+//                    switch stepReached1 {
+//                    case .first:
+//                        stepReached1 = .second
+//                    case .second:
+//                        stepReached1 = .third
+//                    case .third:
+//                        stepReached1 = .final
+//                    case .final:
+//                        stepReached1 = .first
+//                    }
+//                }
+//            }) {
+//                Text("Next Step")
+//                    .padding()
+//                    .background(Color.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(8)
+//            }
+//            .padding(.top, 20)
         }
     }
     
@@ -69,4 +92,31 @@ struct Line: Shape {
     SignUpStepsView(stepReached: .constant(.first))
         .padding()
         .withBackground()
+    
+//    SignUpStepsViewPreview()
+//        .padding()
+//        .withBackground()
+}
+
+struct SignUpStepsViewPreview: View {
+    @State var stepReached = SignUpStep.first
+    
+    var body: some View {
+        VStack {
+            SignUpStepsView(stepReached: $stepReached)
+            
+            Button {
+                if stepReached == .first {
+                    stepReached = .second
+                } else if stepReached == .second {
+                    stepReached = .third
+                } else if stepReached == .third {
+                    stepReached = .final
+                }
+            } label: {
+                Text("Next")
+            }
+
+        }
+    }
 }

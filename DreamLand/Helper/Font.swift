@@ -43,5 +43,5 @@ extension View {
         self
             .foregroundStyle(.pastelWhite)
             .customFont(weight)
-    }
+    } 
 }

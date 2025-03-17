@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct DreamLandApp: App {
-    @State private var currentScreen: AppMainView = .splash
+    @State var currentScreen: AppMainView = .splash
     
     var body: some Scene {
         WindowGroup {
@@ -19,6 +19,7 @@ struct DreamLandApp: App {
                         //.transition(.opacity)
                 case .login: LoginView()
                         //.transition(.opacity)
+                case .main: MainTabView()
                 }
             }
             .animation(.easeIn(duration: 0.5), value: currentScreen)
@@ -37,4 +38,5 @@ struct DreamLandApp: App {
 enum AppMainView {
     case splash
     case login
+    case main
 }

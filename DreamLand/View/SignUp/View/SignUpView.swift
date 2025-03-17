@@ -18,7 +18,7 @@ struct SignUpView: View {
                 switch viewModel.stepReached {
                 case .first: FirstSignUpView(viewModel: viewModel)
                 case .second: SecondSignUpView(viewModel: viewModel)
-                case .third: ThirdSignUpView()
+                case .third: ThirdSignUpView(viewModel: viewModel)
                 case .final: FinalSignUpView()
                 }
             }

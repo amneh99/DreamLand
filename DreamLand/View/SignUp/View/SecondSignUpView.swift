@@ -10,7 +10,8 @@ import SwiftUI
 struct SecondSignUpView: View {
     @ObservedObject var viewModel: SignUpViewModel
     let options = ["Option 1", "Option 2", "Option 3", "Option 4"]
-       @State private var selectedOption: String?
+    @State private var selectedOption: String?
+    
     var body: some View {
         
         VStack {
@@ -42,7 +43,9 @@ struct SecondSignUpView: View {
             }
             
             DlMainButton(title: "Next") {
-                viewModel.stepReached = .third
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.5)) {
+                    viewModel.stepReached = .third
+                }
             }
             .frame(width: 120)
             .padding(.bottom)

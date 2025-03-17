@@ -33,7 +33,9 @@ struct FirstSignUpView: View {
             
             
             DlMainButton(title: "Next") {
-                viewModel.stepReached = .second
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.5)) {
+                    viewModel.stepReached = .second
+                }
             }
             .frame(width: 120)
             .padding(.bottom)
