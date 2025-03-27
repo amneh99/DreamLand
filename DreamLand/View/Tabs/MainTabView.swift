@@ -11,7 +11,16 @@ struct MainTabView: View {
     @State var selectedTab = TabBarItem.home
     var body: some View {
         VStack {
-            Spacer()
+            
+            ScrollView {
+                switch selectedTab {
+                case .home: HomeView()
+                case .downloads: DownloadsView()
+                case .search: SearchView()
+                case .fav: FavouritesView()
+                }
+            }
+            
             
             TabView(selectedTab: $selectedTab)
         }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FinalSignUpView: View {
+    @EnvironmentObject var appMainView: AppMainView
+
     var body: some View {
         VStack {
             Spacer()
@@ -22,7 +24,7 @@ struct FinalSignUpView: View {
             
             DlMainButton(title: "Go!") {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.5)) {
-                   
+                    appMainView.currentScreen = .main
                 }
             }
             .frame(width: 220)

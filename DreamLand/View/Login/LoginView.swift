@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var appMainView: AppMainView
     @ObservedObject private var viewModel = ViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 50) {
@@ -28,7 +30,7 @@ struct LoginView: View {
                 }
                 
                 DlMainButton(title: "Login") {
-                    
+                    appMainView.currentScreen = .main
                 }
                 .frame(width: 180)
                 

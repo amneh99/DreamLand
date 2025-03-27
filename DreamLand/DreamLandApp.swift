@@ -9,34 +9,38 @@ import SwiftUI
 
 @main
 struct DreamLandApp: App {
-    @State var currentScreen: AppMainView = .splash
+    @StateObject var appMainView = AppMainView()
     
     var body: some Scene {
         WindowGroup {
             Group {
-                switch currentScreen {
+                switch appMainView.currentScreen {
                 case .splash: SplashView()
-                        //.transition(.opacity)
+                    //.transition(.opacity)
                 case .login: LoginView()
-                        //.transition(.opacity)
+                    //.transition(.opacity)
                 case .main: MainTabView()
                 }
             }
-            .animation(.easeIn(duration: 0.5), value: currentScreen)
+            .animation(.easeIn(duration: 0.5), value: appMainView.currentScreen)
             .onAppear {
-                if currentScreen == .splash {
+                if appMainView.currentScreen == .splash {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        currentScreen = .login
+                        appMainView.currentScreen = .login
                     }
                 }
             }
         }
+        .environmentObject(appMainView)
     }
 }
 
-
-enum AppMainView {
-    case splash
-    case login
-    case main
+class AppMainView: ObservableObject {
+    @Published var currentScreen = AppMain.splash
+    
+    enum AppMain {
+        case splash
+        case login
+        case main
+    }
 }
