@@ -29,7 +29,7 @@ struct TabView: View {
                     }
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 22)
         }
     }
     
@@ -38,7 +38,7 @@ struct TabView: View {
             Image(tab.image(isSelected: tab == selectedTab))
                 .resizable()
                 .scaledToFit()
-                .frame(width: 35, height: 35)
+                .frame(width: 30, height: 30)
         }
     }
 }

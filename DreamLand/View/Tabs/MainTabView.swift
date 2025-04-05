@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selectedTab = TabBarItem.home
+    @State var selectedTab = TabBarItem.downloads
     var body: some View {
         VStack {
-            
+            HomeHeaderView()
+                .padding(.horizontal)
+
             ScrollView {
                 switch selectedTab {
                 case .home: HomeView()
