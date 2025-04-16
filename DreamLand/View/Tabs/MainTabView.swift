@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selectedTab = TabBarItem.downloads
+    @State var selectedTab = TabBarItem.search
     var body: some View {
         VStack {
             HomeHeaderView()
